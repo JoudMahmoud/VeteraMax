@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\iti\\0-project\\veteraMax\\VeteraMax\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj": {}
+    "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj": {}
   },
   "projects": {
-    "E:\\iti\\0-project\\veteraMax\\VeteraMax\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj": {
+    "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\VeteraMax\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj",
+        "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj",
         "projectName": "VeteraMax.Domain",
-        "projectPath": "E:\\iti\\0-project\\veteraMax\\VeteraMax\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj",
+        "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj",
         "packagesPath": "C:\\Users\\Kimo Store\\.nuget\\packages\\",
-        "outputPath": "E:\\iti\\0-project\\veteraMax\\VeteraMax\\VeteraMax\\VeteraMax.Domain\\obj\\",
+        "outputPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

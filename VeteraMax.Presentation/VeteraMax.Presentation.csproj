@@ -14,4 +14,10 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VeteraMax.Application\VeteraMax.Application.csproj" />
+    <ProjectReference Include="..\VeteraMax.Domain\VeteraMax.Domain.csproj" />
+    <ProjectReference Include="..\VeteraMax.Infrastructure\VeteraMax.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
