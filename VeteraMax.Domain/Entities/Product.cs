@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -39,9 +40,12 @@ namespace VeteraMax.Domain.Entities
 
 		[ForeignKey("SubCategory")]
 		public int SubCategoryId { get; set; }
+		[Required]
 		public SubCategory SubCategory { get; set; }
 
 
 		public ICollection<Favorites> Favorites { get; set; } = new List<Favorites>();
+
+		public ICollection<Order>? Orders { get; set; }
 	}
 }

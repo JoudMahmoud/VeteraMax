@@ -11,7 +11,5 @@ namespace VeteraMax.Domain.Enums
 		Electronic_Wallets,
 		InstaPay,
 		BankTransfer,
-
-
 	}
 }

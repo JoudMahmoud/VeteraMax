@@ -12,7 +12,7 @@ namespace VeteraMax.Domain.Entities
 		public float Amount { get; set; }
 		public DateTime DateTime { get; set; }
 		public Status Status { get; set; }
-		public ChargingMethod ChargingMethod { get; set; }
 		public TransactionType TransactionType { get; set; }
+		public Order Order { get; set; }
 	}
 }

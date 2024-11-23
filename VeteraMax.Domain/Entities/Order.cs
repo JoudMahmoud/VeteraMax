@@ -13,6 +13,8 @@ namespace VeteraMax.Domain.Entities
 		public DateOnly DeeviryDate { get; set; }
 		public string? cancellationReason { get; set; } 
 		public  DeliveryState DeliveryState { get; set; }
-
+		public PaymentMethod PaymentMethod { get; set; }
+		public ICollection<Product> Products { get; set; }
+		public WalletTransaction? Transaction { get; set; }
 	}
 }
