@@ -21,4 +21,8 @@
     <ProjectReference Include="..\VeteraMax.Domain\VeteraMax.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>

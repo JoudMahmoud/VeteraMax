@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "JHdXY8lx2raJRKW5cNGzljSFGqWIa+zshYnr1Sh6Sb4=",
+  "Hash": "ENqxS4chle6iL+zf8eIiR614EERb/T03YJw/6zgiD6A=",
   "Source": "VeteraMax.Presentation",
   "BasePath": "_content/VeteraMax.Presentation",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "VeteraMax.Presentation\\wwwroot",
+      "Source": "VeteraMax.Presentation",
+      "ContentRoot": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\wwwroot\\",
+      "BasePath": "_content/VeteraMax.Presentation",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\wwwroot\\DataSeed\\Role.json",
+      "SourceId": "VeteraMax.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\wwwroot\\",
+      "BasePath": "_content/VeteraMax.Presentation",
+      "RelativePath": "DataSeed/Role.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DataSeed\\Role.json"
+    }
+  ]
 }

@@ -12,6 +12,6 @@ namespace VeteraMax.Domain.Entities.OptionalEntities
     {
         public int WholeSalerPriceAfterOffer { get; set; }
         public int AnimalBreederPriceAfterOffer { get; set; }
-        public int RetaiDestributorPriceAfterOffer { get; set; }
+        public int RetailDestributorPriceAfterOffer { get; set; }
     }
 }

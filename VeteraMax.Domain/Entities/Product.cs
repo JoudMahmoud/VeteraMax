@@ -20,17 +20,17 @@ namespace VeteraMax.Domain.Entities
 		//Max Quantity per trader
 		public int WholeSalerMaxQuantity { get; set; }
 		public int AnimalBreederMaxQuantity { get; set; }
-		public int RetaiDestributorMaxQuantity { get; set; }
+		public int RetailDestributorMaxQuantity { get; set; }
 
 		//Min Quantity per trader
 		public int WholeSalerMinQuantity { get; set; }
 		public int AnimalBreederMinQuantity { get; set; }
-		public int RetaiDestributorMinQuantity { get; set; }
+		public int RetailDestributorMinQuantity { get; set; }
 
 		//price per trader 
 		public int WholeSalerPrice{ get; set; }
 		public int AnimalBreederPrice { get; set; }
-		public int RetaiDestributorPrice { get; set; }
+		public int RetailDestributorPrice { get; set; }
 
 		public List<QuantityByExpiration> quantityByExpirations { get; set; } = new();
 
@@ -44,7 +44,7 @@ namespace VeteraMax.Domain.Entities
 		public SubCategory SubCategory { get; set; }
 
 
-		public ICollection<Favorites> Favorites { get; set; } = new List<Favorites>();
+		public ICollection<User> FavoritedByUsers { get; set; } = new List<User>();
 
 		public ICollection<Order>? Orders { get; set; }
 	}

@@ -13,6 +13,6 @@ namespace VeteraMax.Domain.Entities.OwnedClasses
         public string City { get; set; }
         public string Center { get; set; }
         public string Village { get; set; }
-        public string Detais { get; set; }
+        public string Details { get; set; }
     }
 }

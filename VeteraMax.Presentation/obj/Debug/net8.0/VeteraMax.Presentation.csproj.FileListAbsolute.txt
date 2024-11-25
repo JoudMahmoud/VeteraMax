@@ -86,3 +86,5 @@ E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\obj\Debug
 E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\obj\Debug\net8.0\VeteraMax.Presentation.pdb
 E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\obj\Debug\net8.0\VeteraMax.Presentation.genruntimeconfig.cache
 E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\obj\Debug\net8.0\ref\VeteraMax.Presentation.dll
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\obj\Debug\net8.0\VeteraMax.Presentation.MvcApplicationPartsAssemblyInfo.cs
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\bin\Debug\net8.0\VeteraMax.Presentation.staticwebassets.runtime.json

@@ -12,3 +12,4 @@ namespace VeteraMax.Domain.Enums
 		Pay 
 	}
 }
+	

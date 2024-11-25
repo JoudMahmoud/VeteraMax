@@ -8,8 +8,8 @@ namespace VeteraMax.Domain.Enums
 {
 	public enum TraderType
 	{
-		AnimalBreeder,
-		RetaiDistributor,
-		Wholesaler
+		Wholesaler,
+		RetailDistributor,
+		AnimalBreeder
 	}
 }
