@@ -8,15 +8,14 @@ using VeteraMax.Domain.Enums;
 
 namespace VeteraMax.Application.DTOs
 {
-	public class UserRegisterDto
+	public class RegisterUserDto
 	{
 		[Required]
 		public string UserName { get; set; }
 		[Required]
 		public string PhoneNumber { get; set; }
 		[Required]
-		public AddressDto Address { get; set; }
-		[Required]
+		public required AddressDto Address { get; set; }
 		public string? ImageUrl { get; set; }
 		[Required]
 		public TraderType traderType { get; set; }

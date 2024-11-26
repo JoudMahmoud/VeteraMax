@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VeteraMax.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+984fa9cf7424a31f87bce51bbe8b5814a8de1827")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f6c29f2a5b8a8cd6e4c86bf1de6dacfbc1dfa84")]
 [assembly: System.Reflection.AssemblyProductAttribute("VeteraMax.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VeteraMax.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

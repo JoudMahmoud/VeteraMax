@@ -1,5 +1,3 @@
 [
-  "AddAdmin",
-  "AddUser",
-  "RemoveUser"
+  "User"
 ]

@@ -1,9 +1,11 @@
 
+using VeteraMax.Infrastructure.DataSeed;
+
 namespace VeteraMax.Presentation
 {
 	public class Program
 	{
-		public static void Main(string[] args)
+		public static async void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
@@ -14,14 +16,24 @@ namespace VeteraMax.Presentation
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
 
-			var app = builder.Build();
 
-			// Configure the HTTP request pipeline.
-			if (app.Environment.IsDevelopment())
+			builder.Services.AddScoped<RoleSeeder>();
+
+			var app = builder.Build();
+			#region role
+			using (var scope = app.Services.CreateScope())
 			{
-				app.UseSwagger();
-				app.UseSwaggerUI();
+				var roleSeeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
+				await roleSeeder.SeedRolesAsync();
 			}
+				#endregion
+
+				// Configure the HTTP request pipeline.
+				if (app.Environment.IsDevelopment())
+				{
+					app.UseSwagger();
+					app.UseSwaggerUI();
+				}
 
 			app.UseHttpsRedirection();
 

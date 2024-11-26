@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "kvDT6a8H3nU=",
+  "dgSpecHash": "ExLWVR3A/0Y=",
   "success": true,
   "projectFilePath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VeteraMax.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Kimo Store\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Kimo Store\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Kimo Store\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Kimo Store\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

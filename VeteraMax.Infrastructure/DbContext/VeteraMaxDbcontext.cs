@@ -22,7 +22,9 @@ namespace VeteraMax.Infrastructure.DbContext
 		public DbSet<Product> Products { get; set; }
 		public DbSet<PriceAfterOffer> PriceAfterOffer { get; set; }
 		public DbSet<PriceByCoins> PriceByCoins { get; set; }
-
+		public DbSet<Order> Orders { get; set; }
+		public DbSet<Wallet> Wallets { get; set; }
+		public DbSet<WalletTransaction> WalletTransactions { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
@@ -31,27 +33,23 @@ namespace VeteraMax.Infrastructure.DbContext
 				.HasMany(u => u.FavoriteProducts)
 				.WithMany(p => p.FavoritedByUsers)
 				.UsingEntity(j => j.ToTable("Favorites"));
-				
-			
+
 			builder.Entity<User>(entity =>
 			{
 				entity.Property(u => u.TraderType).HasConversion<string>();
 			});
 
-			builder.Entity<User>()
-				.HasOne(u=>u.TraderVerificationInfo)
-				.WithOne(t=>t.User)
-				.HasForeignKey<TraderVerificationInfo>(t=>t.UserId)
-				.IsRequired(false);
+			builder.Entity<Order>(entity =>
+			{
+				entity.Property(o => o.DeliveryState).HasConversion<string>();
+				entity.Property(o => o.PaymentMethod).HasConversion<string>();
+			});
 
-
-
-
-
-
-
+			builder.Entity<WalletTransaction>(entity =>
+			{
+				entity.Property(w => w.TransactionType).HasConversion<string>();
+				entity.Property(w => w.Status).HasConversion<string>();
+			});
 		}
-
-
 	}
 }
