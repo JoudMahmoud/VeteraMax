@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace VeteraMax.Infrastructure.DataSeed
+namespace VetraMax.Infrastructure.DataSeed
 {
 	public class RoleSeeder
 	{

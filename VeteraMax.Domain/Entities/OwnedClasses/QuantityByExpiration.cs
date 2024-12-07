@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VeteraMax.Domain.Entities.OwnedClasses
+namespace VetraMax.Domain.Entities.OwnedClasses
 {
     [Owned]
     public class QuantityByExpiration

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VeteraMax.Domain.Entities;
+using VetraMax.Domain.Entities;
 
-namespace VeteraMax.Domain.Enums
+namespace VetraMax.Domain.Enums
 {
 	public enum PaymentMethod
 	{

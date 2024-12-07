@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VeteraMax.Domain.Enums;
+using VetraMax.Domain.Enums;
 
-namespace VeteraMax.Domain.Entities
+namespace VetraMax.Domain.Entities
 {
 	public class Order : Base
 	{
@@ -16,7 +16,7 @@ namespace VeteraMax.Domain.Entities
 		public  DeliveryState DeliveryState { get; set; }
 		public PaymentMethod PaymentMethod { get; set; }
 		[Required]
-		public ICollection<Product> Products { get; set; }
-		public WalletTransaction? Transaction { get; set; }
+		public virtual ICollection<Product> Products { get; set; }
+		public virtual WalletTransaction? Transaction { get; set; }
 	}
 }

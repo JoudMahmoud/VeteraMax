@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VeteraMax.Domain.Entities
+namespace VetraMax.Domain.Entities
 {
 	public class Category:Base
 	{
-		public string Name { get; set; }
-		public ICollection<SubCategory>? SubCategories { get; set; }
+		[Required]
+		[StringLength(50, MinimumLength = 1, ErrorMessage = "Name must be between 1 and 30 characters")]
+		public string Name { get; set; } = "";
+		public virtual ICollection<SubCategory>? SubCategories { get; set; }
 	}
 }

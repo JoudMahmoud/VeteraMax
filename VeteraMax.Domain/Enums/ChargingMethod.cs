@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VeteraMax.Domain.Enums
+namespace VetraMax.Domain.Enums
 {
 	public enum ChargingMethod
 	{

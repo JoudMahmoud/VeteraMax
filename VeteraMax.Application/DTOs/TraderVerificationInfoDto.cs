@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VeteraMax.Application.DTOs
+namespace VetraMax.Application.DTOs
 {
-	internal class TraderVerificationInfoDto
+	public class TraderVerificationInfoDto
 	{
+		public int? NationalNum { get; set; }
+		public string? IdCardImageUrl { get; set; }
+
+		public string? TaxCard { get; set; }
+		public string? TaxCardImgaeUrl { get; set; }
+
+		public string? CommercialRegister { get; set; }
+		public string? CommercialRegisterImgaeUrl { get; set; }
+
 	}
 }

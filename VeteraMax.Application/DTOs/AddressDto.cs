@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VeteraMax.Application.DTOs
+namespace VetraMax.Application.DTOs
 {
 	public class AddressDto
 	{

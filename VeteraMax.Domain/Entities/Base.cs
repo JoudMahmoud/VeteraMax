@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VeteraMax.Domain.Entities
+namespace VetraMax.Domain.Entities
 {
 	public class Base
 	{

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "00uqOM9KDZQ=",
+  "dgSpecHash": "BhDJ/Rawm08=",
   "success": true,
-  "projectFilePath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj",
+  "projectFilePath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VetraMax.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kimo Store\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.11\\microsoft.aspnetcore.cryptography.internal.8.0.11.nupkg.sha512",
     "C:\\Users\\Kimo Store\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.11\\microsoft.aspnetcore.cryptography.keyderivation.8.0.11.nupkg.sha512",

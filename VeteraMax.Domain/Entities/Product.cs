@@ -5,15 +5,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VeteraMax.Domain.Entities.OptionalEntities;
-using VeteraMax.Domain.Entities.OwnedClasses;
+using VetraMax.Domain.Entities.OptionalEntities;
+using VetraMax.Domain.Entities.OwnedClasses;
 
-namespace VeteraMax.Domain.Entities
+namespace VetraMax.Domain.Entities
 {
-    public class Product
+    public class Product:Base
 	{
+		[Required]
 		public string Name { get; set; }
 		public string? Description { get; set; }
+		[Required]
 		public string ImageUrl { get; set; }
 		public int TotalQuintity { get; set; }
 
@@ -32,20 +34,20 @@ namespace VeteraMax.Domain.Entities
 		public int AnimalBreederPrice { get; set; }
 		public int RetailDestributorPrice { get; set; }
 
-		public List<QuantityByExpiration> quantityByExpirations { get; set; } = new();
+		public virtual List<QuantityByExpiration> quantityByExpirations { get; set; } = new();
 
-		public PriceByCoins? priceByCoins { get; set; }
-		public PriceAfterOffer? priceAfterOffer { get; set; }
+		public virtual PriceByCoins? priceByCoins { get; set; }
+		public virtual PriceAfterOffer? priceAfterOffer { get; set; }
 
 
 		[ForeignKey("SubCategory")]
 		public int SubCategoryId { get; set; }
 		[Required]
-		public SubCategory SubCategory { get; set; }
+		public virtual SubCategory SubCategory { get; set; }= new();
 
 
-		public ICollection<User> FavoritedByUsers { get; set; } = new List<User>();
+		public virtual ICollection<User> FavoritedByUsers { get; set; } = new List<User>();
 
-		public ICollection<Order>? Orders { get; set; }
+		public virtual ICollection<Order>? Orders { get; set; }
 	}
 }

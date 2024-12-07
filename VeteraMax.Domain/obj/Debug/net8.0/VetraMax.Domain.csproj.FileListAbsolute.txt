@@ -1,0 +1,13 @@
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\bin\Debug\net8.0\VetraMax.Domain.deps.json
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\bin\Debug\net8.0\VetraMax.Domain.dll
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\bin\Debug\net8.0\VetraMax.Domain.pdb
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\VetraMax.Domain.csproj.AssemblyReference.cache
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\VetraMax.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\VetraMax.Domain.AssemblyInfoInputs.cache
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\VetraMax.Domain.AssemblyInfo.cs
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\VetraMax.Domain.csproj.CoreCompileInputs.cache
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\VetraMax.Domain.sourcelink.json
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\VetraMax.Domain.dll
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\refint\VetraMax.Domain.dll
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\VetraMax.Domain.pdb
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Domain\obj\Debug\net8.0\ref\VetraMax.Domain.dll

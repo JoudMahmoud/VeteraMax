@@ -333,17 +333,17 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "VeteraMax.Domain/1.0.0": {
+      "VetraMax.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.11"
         },
         "compile": {
-          "bin/placeholder/VeteraMax.Domain.dll": {}
+          "bin/placeholder/VetraMax.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/VeteraMax.Domain.dll": {}
+          "bin/placeholder/VetraMax.Domain.dll": {}
         }
       }
     }
@@ -852,16 +852,16 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "VeteraMax.Domain/1.0.0": {
+    "VetraMax.Domain/1.0.0": {
       "type": "project",
-      "path": "../VeteraMax.Domain/VeteraMax.Domain.csproj",
-      "msbuildProject": "../VeteraMax.Domain/VeteraMax.Domain.csproj"
+      "path": "../VeteraMax.Domain/VetraMax.Domain.csproj",
+      "msbuildProject": "../VeteraMax.Domain/VetraMax.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "AutoMapper >= 13.0.1",
-      "VeteraMax.Domain >= 1.0.0"
+      "VetraMax.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -871,9 +871,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VeteraMax.Application.csproj",
-      "projectName": "VeteraMax.Application",
-      "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VeteraMax.Application.csproj",
+      "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VetraMax.Application.csproj",
+      "projectName": "VetraMax.Application",
+      "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VetraMax.Application.csproj",
       "packagesPath": "C:\\Users\\Kimo Store\\.nuget\\packages\\",
       "outputPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\obj\\",
       "projectStyle": "PackageReference",
@@ -897,8 +897,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj": {
-              "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj"
+            "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VetraMax.Domain.csproj": {
+              "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VetraMax.Domain.csproj"
             }
           }
         }

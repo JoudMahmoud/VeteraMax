@@ -821,9 +821,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj",
-      "projectName": "VeteraMax.Domain",
-      "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj",
+      "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VetraMax.Domain.csproj",
+      "projectName": "VetraMax.Domain",
+      "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VetraMax.Domain.csproj",
       "packagesPath": "C:\\Users\\Kimo Store\\.nuget\\packages\\",
       "outputPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,27 +1,27 @@
 {
   "Version": 1,
-  "Hash": "ENqxS4chle6iL+zf8eIiR614EERb/T03YJw/6zgiD6A=",
-  "Source": "VeteraMax.Presentation",
-  "BasePath": "_content/VeteraMax.Presentation",
+  "Hash": "C3bMcwd2h3AcjOnaRkwBvf/+DNkLzHVb+m2PpeDYxf0=",
+  "Source": "VetraMax.Presentation",
+  "BasePath": "_content/VetraMax.Presentation",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "VeteraMax.Presentation\\wwwroot",
-      "Source": "VeteraMax.Presentation",
+      "Name": "VetraMax.Presentation\\wwwroot",
+      "Source": "VetraMax.Presentation",
       "ContentRoot": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\wwwroot\\",
-      "BasePath": "_content/VeteraMax.Presentation",
+      "BasePath": "_content/VetraMax.Presentation",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
       "Identity": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\wwwroot\\DataSeed\\Role.json",
-      "SourceId": "VeteraMax.Presentation",
+      "SourceId": "VetraMax.Presentation",
       "SourceType": "Discovered",
       "ContentRoot": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\wwwroot\\",
-      "BasePath": "_content/VeteraMax.Presentation",
+      "BasePath": "_content/VetraMax.Presentation",
       "RelativePath": "DataSeed/Role.json",
       "AssetKind": "All",
       "AssetMode": "All",

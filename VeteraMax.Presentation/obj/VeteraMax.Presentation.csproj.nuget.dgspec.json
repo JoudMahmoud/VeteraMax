@@ -4,12 +4,12 @@
     "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\VeteraMax.Presentation.csproj": {}
   },
   "projects": {
-    "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VeteraMax.Application.csproj": {
+    "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VetraMax.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VeteraMax.Application.csproj",
-        "projectName": "VeteraMax.Application",
-        "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VeteraMax.Application.csproj",
+        "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VetraMax.Application.csproj",
+        "projectName": "VetraMax.Application",
+        "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VetraMax.Application.csproj",
         "packagesPath": "C:\\Users\\Kimo Store\\.nuget\\packages\\",
         "outputPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\obj\\",
         "projectStyle": "PackageReference",
@@ -150,12 +150,12 @@
         }
       }
     },
-    "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VeteraMax.Infrastructure.csproj": {
+    "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VetraMax.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VeteraMax.Infrastructure.csproj",
-        "projectName": "VeteraMax.Infrastructure",
-        "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VeteraMax.Infrastructure.csproj",
+        "projectUniqueName": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VetraMax.Infrastructure.csproj",
+        "projectName": "VetraMax.Infrastructure",
+        "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VetraMax.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Kimo Store\\.nuget\\packages\\",
         "outputPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
@@ -179,8 +179,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VeteraMax.Application.csproj": {
-                "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VeteraMax.Application.csproj"
+              "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VetraMax.Application.csproj": {
+                "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VetraMax.Application.csproj"
               },
               "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj": {
                 "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj"
@@ -271,14 +271,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VeteraMax.Application.csproj": {
-                "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VeteraMax.Application.csproj"
+              "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VetraMax.Application.csproj": {
+                "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Application\\VetraMax.Application.csproj"
               },
               "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj": {
                 "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Domain\\VeteraMax.Domain.csproj"
               },
-              "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VeteraMax.Infrastructure.csproj": {
-                "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VeteraMax.Infrastructure.csproj"
+              "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VetraMax.Infrastructure.csproj": {
+                "projectPath": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Infrastructure\\VetraMax.Infrastructure.csproj"
               }
             }
           }
@@ -298,6 +298,12 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"

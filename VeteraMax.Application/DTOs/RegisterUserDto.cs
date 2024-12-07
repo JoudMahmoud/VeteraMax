@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VeteraMax.Domain.Enums;
+using VetraMax.Domain.Enums;
 
-namespace VeteraMax.Application.DTOs
+namespace VetraMax.Application.DTOs
 {
 	public class RegisterUserDto
 	{
@@ -15,12 +15,10 @@ namespace VeteraMax.Application.DTOs
 		[Required]
 		public string PhoneNumber { get; set; }
 		[Required]
-		public required AddressDto Address { get; set; }
+		public required AddressDto AddressDto { get; set; }
 		public string? ImageUrl { get; set; }
 		[Required]
-		public TraderType traderType { get; set; }
-		public string? NationalNum { get; set; }
-		public string? TaxCard {  get; set; }
-		public string? CommercialRegister { get; set; }
+		public string TraderType { get; set; }
+		public TraderVerificationInfoDto? TraderVerificationInfoDto { get; set; }
 	}
 }

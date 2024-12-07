@@ -5,20 +5,20 @@
       "PackagePath": "staticwebassets\\DataSeed\\Role.json"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.VeteraMax.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.VetraMax.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.VeteraMax.Presentation.props",
-      "PackagePath": "build\\VeteraMax.Presentation.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.VetraMax.Presentation.props",
+      "PackagePath": "build\\VetraMax.Presentation.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.VeteraMax.Presentation.props",
-      "PackagePath": "buildMultiTargeting\\VeteraMax.Presentation.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.VetraMax.Presentation.props",
+      "PackagePath": "buildMultiTargeting\\VetraMax.Presentation.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.VeteraMax.Presentation.props",
-      "PackagePath": "buildTransitive\\VeteraMax.Presentation.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.VetraMax.Presentation.props",
+      "PackagePath": "buildTransitive\\VetraMax.Presentation.props"
     }
   ],
   "ElementsToRemove": []

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\VetraMax.Presentation.props" />
+</Project>

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VeteraMax.Domain.Entities.OwnedClasses
+namespace VetraMax.Domain.Entities.OwnedClasses
 {
 	public class TraderVerificationInfo:Base
 	{
@@ -19,10 +19,10 @@ namespace VeteraMax.Domain.Entities.OwnedClasses
 		
 		public string CommercialRegister { get; set; }
 		public string CommercialRegisterImgaeUrl { get; set; }
-		
-		[ForeignKey("User")]
-		public string UserId {  get; set; }
 		[Required]
-		public User User { get; set; }
+		[ForeignKey("User")]
+		public string UserId { get; set; } = "";
+		[Required]
+		public virtual User User { get; set; } = new User();
 	}
 }

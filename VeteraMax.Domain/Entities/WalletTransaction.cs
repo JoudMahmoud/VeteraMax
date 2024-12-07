@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VeteraMax.Domain.Enums;
+using VetraMax.Domain.Enums;
 
-namespace VeteraMax.Domain.Entities
+namespace VetraMax.Domain.Entities
 {
 	public class WalletTransaction:Base
 	{
@@ -13,6 +14,8 @@ namespace VeteraMax.Domain.Entities
 		public DateTime DateTime { get; set; }
 		public Status Status { get; set; }
 		public TransactionType TransactionType { get; set; }
-		public Order Order { get; set; }
+		[ForeignKey("Order")]
+		public int OrderId { get; set; }
+		public virtual Order Order { get; set; }
 	}
 }

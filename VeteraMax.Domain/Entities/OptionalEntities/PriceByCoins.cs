@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VeteraMax.Domain.Entities.OptionalEntities
+namespace VetraMax.Domain.Entities.OptionalEntities
 {
     public class PriceByCoins : Base
     {
