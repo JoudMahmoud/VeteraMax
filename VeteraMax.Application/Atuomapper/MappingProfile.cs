@@ -21,9 +21,24 @@ namespace VetraMax.Application.Atuomapper
 			CreateMap<AddressDto, Address>();
 			CreateMap<TraderVerificationInfoDto, TraderVerificationInfo>();
 
-			CreateMap<Product, ProductDto>()
-				.ForMember(dest => dest.subCategoryName, opt => opt.MapFrom(src => src.SubCategory.Name));
-			CreateMap<ProductDto, Product>();
+
+
+			CreateMap<ProductDto, Product>()
+				.ForPath(dest=> dest.SubCategory.Name, opt=>opt.MapFrom(src=>src.subCategoryName));
+
+			CreateMap<Product, ProductDtoForDisplay>();
+
+			//CreateMap<Product, ProductDto>()
+			//	.ForMember(dest => dest.subCategoryName, opt => opt.MapFrom(src => src.SubCategory.Name));
+			//CreateMap<Product, ProductDtoForDisplay>();
+			
+			//CreateMap<ProductDtoForDisplay, Product>();
+
+			//CreateMap<ProductDto, Product>()
+			//.ForMember(dest => dest.SubCategory.Name, opt => opt.MapFrom(src => src.subCategoryName));
+
+
+
 
 			CreateMap<CategoryDto, Category>();	
 			CreateMap<Category,CategoryDto>();
@@ -32,7 +47,7 @@ namespace VetraMax.Application.Atuomapper
 			CreateMap<SubCategory, SubCategoryDto>()
 				.ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
 
-			
+		
 		}
 	}
 }

@@ -30,6 +30,14 @@ namespace VetraMax.Presentation.Controllers
 			var subCategoriesDto = _mapper.Map<List<SubCategoryDto>>(subCategories);
 			return Ok(subCategoriesDto);
 		}
+		[HttpGet("cantegoryNaeme/{name}")]
+		public async Task<ActionResult<IEnumerable<SubCategoryDto>>> GetSubCategoryByCategoryName([FromQuery]string categoryName)
+		{
+			var subCategories= await _subCategoryRepo.GetSubCategoriesByCategoryName(categoryName);
+			if(subCategories.Count() == 0) {return NotFound(); }
+			var subCategoriesDto = _mapper.Map<List<SubCategoryDto>>(subCategories);
+			return Ok(subCategoriesDto);
+		}
 
 		[HttpGet("{id}")]
 		public async Task<ActionResult<SubCategoryDto>> GetSubCategoryById(int id)
@@ -62,11 +70,13 @@ namespace VetraMax.Presentation.Controllers
 			subCategory.CategoryId = category.Id;
 			subCategory.Category=category;
 
-			subCategory =await _subCategoryRepo.InsertSubCategory(subCategory);
-			await _subCategoryRepo.save();
-
-			var resultDto= _mapper.Map<SubCategoryDto>(subCategory);
-			return Ok(resultDto);
+			await _subCategoryRepo.InsertSubCategory(subCategory);
+			var isSaved = await _subCategoryRepo.Save();
+			if (!isSaved)
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Failed to add the subCategory" });
+			}
+			return Ok(subCategoryDto);
 		}
 
 		[HttpDelete("{id}")]
@@ -75,13 +85,11 @@ namespace VetraMax.Presentation.Controllers
 			var existSubCategory = await _subCategoryRepo.GetSubCategoryById(id);
 			if (existSubCategory == null) 
 			{ return NotFound(new { message = "SubCategroy not found" }); }
-			bool isDeleted = _subCategoryRepo.DeleteSubCategory(existSubCategory);
-			if (isDeleted)
-			{
-				await _subCategoryRepo.save();
-				return Ok(true);
-			}
-			return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Failed to delete the subcategory" });
+			_subCategoryRepo.DeleteSubCategory(existSubCategory);
+			bool isSaved = await _subCategoryRepo.Save();
+			if (!isSaved)
+			{ return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Failed to delete subCategory" }); }
+			return Ok();
 		}
 
 		[HttpPut("{id}")]
@@ -98,16 +106,12 @@ namespace VetraMax.Presentation.Controllers
 			if (category == null) { return NotFound(new { message = "Category not found. Please use an existing category." }); }
 			existSubCategroy.Category = category; 
 			existSubCategroy.CategoryId = category.Id;
-
-			try
-			{
-				_subCategoryRepo.UpdateSubCategory(existSubCategroy);
-				await _subCategoryRepo.save();
+			_subCategoryRepo.UpdateSubCategory(existSubCategroy);
+			bool isSaved = await _subCategoryRepo.Save();
+			if (!isSaved) {
+				return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Failed to edit the subCategory" });
 			}
-			catch (Exception ex)
-			{
-				return StatusCode(StatusCodes.Status500InternalServerError, new { message = ex.Message });
-			}
+			
 			
 			return Ok(subCategory);
 		}

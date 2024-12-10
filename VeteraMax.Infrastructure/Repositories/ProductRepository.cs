@@ -37,24 +37,14 @@ namespace VetraMax.Infrastructure.Repositories
 			await _dbContext.Products.AddAsync(product);
 		}
 
-		public bool DeleteProduct(Product product)
+		public void DeleteProduct(Product product)
 		{
-			try
-			{
-				_dbContext.Products.Remove(product);
-				return true;
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine($"Error deleting product: {ex.Message}");
-				return false;
-			}
+			_dbContext.Products.Remove(product);
 		}
 
-		public Product UpdateProduct(Product product)
+		public void UpdateProduct(Product product)
 		{
 			_dbContext.Entry(product).State = EntityState.Modified;
-			return product;
 		}
 
 		public async Task<bool> Save()

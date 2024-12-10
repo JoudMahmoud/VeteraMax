@@ -21,25 +21,20 @@ namespace VetraMax.Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts()
+        public async Task<ActionResult<IEnumerable<ProductDtoForDisplay>>> GetAllProducts()
         {
             var product = await _productRepo.GetAllProduct();
             if (product.Count() == 0) { return NotFound(); }
-            var productsDto = _mapper.Map<List<ProductDto>>(product);
+            var productsDto = _mapper.Map<List<ProductDtoForDisplay>>(product);
             return Ok(productsDto);
         }
+
         //admin Method 
         [HttpPost]
-        public async Task<ActionResult<ProductDto>> AddProduct([FromBody] ProductDto newProduct)
+        public async Task<ActionResult<ProductDtoForDisplay>> AddProduct([FromBody] ProductDto newProduct)
         {
             if (!ModelState.IsValid)
             {
-                //var errors = ModelState.Where(x => x.Value?.Errors != null)
-                //    .SelectMany(x => x.Value!.Errors)
-                //    .Select(x => x.ErrorMessage)
-                //    .ToList();
-
-                //Console.WriteLine(string.Join(", ", errors));
                 return BadRequest(ModelState);
             }
 
@@ -47,16 +42,13 @@ namespace VetraMax.Presentation.Controllers
             await _productRepo.InsertProduct(product);
            
             bool isSaved = await _productRepo.Save();
-            if (isSaved)
+            if (!isSaved)
             {
-				return Ok(newProduct);
+				return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Failed to add the product"});
 			}
-			
-			return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Failed to add the product" });
-			
-
-
+            var productDto = _mapper.Map<ProductDtoForDisplay>(product);
+            return Ok(productDto);
 		}
 
-    }
+	}
 }

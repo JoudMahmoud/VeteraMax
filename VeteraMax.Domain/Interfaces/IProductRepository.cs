@@ -14,8 +14,8 @@ namespace VetraMax.Domain.Interfaces
 		Task<Product?> GetProductById(int id);
 		Task<Product?> GetProductByName(string name);
 		Task InsertProduct(Product product);
-		bool DeleteProduct(Product product);
-		Product UpdateProduct(Product product);
+		void DeleteProduct(Product product);
+		void UpdateProduct(Product product);
 		Task<bool> Save();
 	}
 }
