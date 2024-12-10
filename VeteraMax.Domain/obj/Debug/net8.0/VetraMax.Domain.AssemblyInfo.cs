@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VetraMax.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6c5f684306029886568e55e65a018e38f01186d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+391210e3a0af7d9a2eec85a7588360276099e9da")]
 [assembly: System.Reflection.AssemblyProductAttribute("VetraMax.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VetraMax.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

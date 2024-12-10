@@ -17,7 +17,7 @@ namespace VetraMax.Domain.Entities
 		public string? Description { get; set; }
 		[Required]
 		public string ImageUrl { get; set; }
-		public int TotalQuintity { get; set; }
+		public int TotalQuintity { get; set; } = 0;
 
 		//Max Quantity per trader
 		public int WholeSalerMaxQuantity { get; set; }

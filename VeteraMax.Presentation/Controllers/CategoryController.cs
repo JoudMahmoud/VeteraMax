@@ -32,6 +32,23 @@ namespace VetraMax.Presentation.Controllers
 			return Ok(categoriesDto);
 		}
 
+		[HttpGet("Admin")]
+		public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCatWithSubCatCount()
+		{
+			var categories = await _categoryRepository.GetAllCategories();
+			if (!categories.Any())
+			{
+				return NotFound();
+			}
+
+			var categoriesDtos = categories.Select(c => new CategoryOverviewDto
+			{
+				Name = c.Name,
+				SubCount = c.SubCategories?.Count() ?? 0
+			}).ToList();
+			
+			return Ok(categoriesDtos);
+		}
 		[HttpGet("{id}")]
 		public async Task<ActionResult<CategoryDto>> GetCategoryById(int id)
 		{

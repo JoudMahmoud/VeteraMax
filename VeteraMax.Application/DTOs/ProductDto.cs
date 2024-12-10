@@ -17,7 +17,7 @@ namespace VetraMax.Application.DTOs
 		[Required]
 		public string ImageUrl { get; set; }
 
-		public int TotalQuintity { get; set; }
+		public int TotalQuintity { get; set; } 
 
 		//Max Quantity per trader
 		public int WholeSalerMaxQuantity { get; set; }
@@ -36,7 +36,8 @@ namespace VetraMax.Application.DTOs
 
 		public PriceByCoinsDto? priceByCoins { get; set; }
 		public PriceAfterOfferDto? priceAfterOffer { get; set; }
-		public string subCategory { get; set; }
+		[Required]
+		public string subCategoryName { get; set; }
 
 	}
 }

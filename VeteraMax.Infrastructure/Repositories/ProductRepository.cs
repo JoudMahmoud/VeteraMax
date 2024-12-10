@@ -57,9 +57,10 @@ namespace VetraMax.Infrastructure.Repositories
 			return product;
 		}
 
-		public async Task Save()
+		public async Task<bool> Save()
 		{
-			await _dbContext.SaveChangesAsync();
+			int rowsAffected = await _dbContext.SaveChangesAsync();
+			return rowsAffected > 0;
 		}
 	}
 }
