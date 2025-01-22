@@ -16,6 +16,43 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "VetraMax.Presentation.Controllers.AccountController",
+    "Method": "SendOtp",
+    "RelativePath": "api/Account/send-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "phoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VetraMax.Presentation.Controllers.AccountController",
+    "Method": "VerifyOtp",
+    "RelativePath": "api/Account/verify-otp",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "phoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "otp",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "VetraMax.Presentation.Controllers.CategoryController",
     "Method": "GetAllCategories",
     "RelativePath": "api/Category",
@@ -44,9 +81,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newCategory",
-        "Type": "VetraMax.Application.DTOs.CategoryDto",
-        "IsRequired": true
+        "Name": "newCategoryName",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -146,15 +183,21 @@
   },
   {
     "ContainingType": "VetraMax.Presentation.Controllers.CategoryController",
-    "Method": "GetCatWithSubCatCount",
-    "RelativePath": "api/Category/Admin",
+    "Method": "GetCategoryByName",
+    "RelativePath": "api/Category/ByName",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "categoryName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[VetraMax.Application.DTOs.CategoryDto, VetraMax.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "VetraMax.Application.DTOs.CategoryDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -166,21 +209,72 @@
   },
   {
     "ContainingType": "VetraMax.Presentation.Controllers.CategoryController",
-    "Method": "GetCategoryByName",
-    "RelativePath": "api/Category/ByName/{categoryName}",
+    "Method": "GetCatWithSubCatCount",
+    "RelativePath": "api/Category/CategoriesWithSubCount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[VetraMax.Application.DTOs.CategoryOverviewDto, VetraMax.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "VetraMax.Presentation.Controllers.FavoriteProductController",
+    "Method": "AddToFavorite",
+    "RelativePath": "api/FavoriteProduct/addToFavorite",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "traderTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "VetraMax.Presentation.Controllers.FavoriteProductController",
+    "Method": "GetAlllfavoriteProduct",
+    "RelativePath": "api/FavoriteProduct/favorites",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "categoryName",
-        "Type": "System.String",
-        "IsRequired": true
+        "Name": "traderTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "VetraMax.Application.DTOs.CategoryDto",
+        "Type": "VetraMax.Application.DTOs.ProductDtoForDisplay",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -197,7 +291,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "traderTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[VetraMax.Application.DTOs.ProductDtoForDisplay, VetraMax.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -226,7 +326,100 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "VetraMax.Application.DTOs.ProductDtoForDisplay",
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "VetraMax.Presentation.Controllers.ProductController",
+    "Method": "GetProductById",
+    "RelativePath": "api/Product/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "traderTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "VetraMax.Application.DTOs.ProductDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "VetraMax.Presentation.Controllers.ProductController",
+    "Method": "GetProductsByName",
+    "RelativePath": "api/Product/byName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ProductName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "traderTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[VetraMax.Application.DTOs.ProductDtoForDisplay, VetraMax.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "VetraMax.Presentation.Controllers.ProductController",
+    "Method": "GetProductsBySubCatName",
+    "RelativePath": "api/Product/bySubCatName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SubCatName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "traderTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[VetraMax.Application.DTOs.ProductDtoForDisplay, VetraMax.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -266,7 +459,7 @@
     "Parameters": [
       {
         "Name": "subCategoryDto",
-        "Type": "VetraMax.Application.DTOs.SubCategoryDto",
+        "Type": "VetraMax.Application.DTOs.InsertSubCategoryDto",
         "IsRequired": true
       }
     ],
@@ -367,21 +560,21 @@
   },
   {
     "ContainingType": "VetraMax.Presentation.Controllers.SubCategoryController",
-    "Method": "GetSubCategoryByName",
-    "RelativePath": "api/SubCategory/ByName/{categroyName}",
+    "Method": "GetSubCategoryByCategoryName",
+    "RelativePath": "api/SubCategory/ByCategoryName",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "categroyName",
+        "Name": "categoryName",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "VetraMax.Application.DTOs.CategoryDto",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[VetraMax.Application.DTOs.SubCategoryDto, VetraMax.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -393,26 +586,21 @@
   },
   {
     "ContainingType": "VetraMax.Presentation.Controllers.SubCategoryController",
-    "Method": "GetSubCategoryByCategoryName",
-    "RelativePath": "api/SubCategory/cantegoryNaeme/{name}",
+    "Method": "GetSubCategoryByName",
+    "RelativePath": "api/SubCategory/ByName",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "categoryName",
+        "Name": "categroyName",
         "Type": "System.String",
         "IsRequired": false
-      },
-      {
-        "Name": "name",
-        "Type": "",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[VetraMax.Application.DTOs.SubCategoryDto, VetraMax.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "VetraMax.Application.DTOs.CategoryDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

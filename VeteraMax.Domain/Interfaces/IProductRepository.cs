@@ -10,9 +10,10 @@ namespace VetraMax.Domain.Interfaces
 	public interface IProductRepository
 	{
 
-		Task<IEnumerable<Product>> GetAllProduct();
-		Task<Product?> GetProductById(int id);
-		Task<Product?> GetProductByName(string name);
+		Task<IEnumerable<Product>> GetAllProduct(int traderTypeId);
+		Task<Product?> GetProductById(int id, int traderTypeId);
+		Task<IEnumerable<Product>> GetProductByName(string name, int traderType);
+		Task<IEnumerable<Product>> GetProductsBySubCatName(string subCatName, int traderType);
 		Task InsertProduct(Product product);
 		void DeleteProduct(Product product);
 		void UpdateProduct(Product product);

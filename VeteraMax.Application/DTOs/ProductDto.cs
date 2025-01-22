@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VetraMax.Domain.Entities.OptionalEntities;
 using VetraMax.Domain.Entities.OwnedClasses;
+using VetraMax.Domain.Enums;
 
 namespace VetraMax.Application.DTOs
 {
@@ -16,28 +16,16 @@ namespace VetraMax.Application.DTOs
 		public string? Description { get; set; }
 		[Required]
 		public string ImageUrl { get; set; }
-
 		public int TotalQuintity { get; set; } 
-
-		//Max Quantity per trader
-		public int WholeSalerMaxQuantity { get; set; }
-		public int AnimalBreederMaxQuantity { get; set; }
-		public int RetailDestributorMaxQuantity { get; set; }
-
-		//Min Quantity per trader
-		public int WholeSalerMinQuantity { get; set; }
-		public int AnimalBreederMinQuantity { get; set; }
-		public int RetailDestributorMinQuantity { get; set; }
-
-		//price per trader 
-		public int WholeSalerPrice { get; set; }
-		public int AnimalBreederPrice { get; set; }
-		public int RetailDestributorPrice { get; set; }
-
-		public PriceByCoinsDto? priceByCoins { get; set; }
-		public PriceAfterOfferDto? priceAfterOffer { get; set; }
+		public bool IsPricedInCoins { get; set; } = false;
+		public bool IsOnOffer { get; set; } = false;
+		public List<ProductRuleDto> productRuleDtos { get; set; } = new();
 		[Required]
-		public string subCategoryName { get; set; }
+		public int subCategoryId { get; set; }
+		public decimal weight { get; set; }
+		public string weightUnit { get; set; }
 
+		public List<QuantityByExpirationDto> QuantityByExpirationDto { get; set; } = new();
+		public int ItemsPerContainer { get; set; }
 	}
 }

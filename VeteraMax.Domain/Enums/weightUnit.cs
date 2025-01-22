@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace VetraMax.Domain.Enums
 {
-	public enum TraderType
+	public enum weightUnit
 	{
-		Wholesaler,
-		RetailDistributor,
-		AnimalBreeder
+		kilo,
+		liter
 	}
 }

@@ -12,8 +12,8 @@ using VetraMax.Infrastructure.DbContext;
 namespace VetraMax.Infrastructure.Migrations
 {
     [DbContext(typeof(VetraMaxDbcontext))]
-    [Migration("20241207063141_create-database")]
-    partial class createdatabase
+    [Migration("20250122192619_createDatabase")]
+    partial class createDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,21 @@ namespace VetraMax.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("DayLine", b =>
+                {
+                    b.Property<int>("DaysId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LinesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DaysId", "LinesId");
+
+                    b.HasIndex("LinesId");
+
+                    b.ToTable("DayLine");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -209,7 +224,7 @@ namespace VetraMax.Infrastructure.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("VetraMax.Domain.Entities.OptionalEntities.PriceAfterOffer", b =>
+            modelBuilder.Entity("VetraMax.Domain.Entities.Line", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -217,40 +232,17 @@ namespace VetraMax.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AnimalBreederPriceAfterOffer")
-                        .HasColumnType("int");
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("RetailDestributorPriceAfterOffer")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WholeSalerPriceAfterOffer")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PriceAfterOffer");
-                });
-
-            modelBuilder.Entity("VetraMax.Domain.Entities.OptionalEntities.PriceByCoins", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AnimalBreederPriceByCoins")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RetailDestributorPriceByCoins")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WholeSalerPriceByCoins")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PriceByCoins");
+                    b.ToTable("Lines");
                 });
 
             modelBuilder.Entity("VetraMax.Domain.Entities.Order", b =>
@@ -283,6 +275,23 @@ namespace VetraMax.Infrastructure.Migrations
                     b.ToTable("Orders");
                 });
 
+            modelBuilder.Entity("VetraMax.Domain.Entities.OwnedClasses.Day", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("DayOfWeek")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Day");
+                });
+
             modelBuilder.Entity("VetraMax.Domain.Entities.OwnedClasses.TraderVerificationInfo", b =>
                 {
                     b.Property<int>("Id")
@@ -291,27 +300,25 @@ namespace VetraMax.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("BackIdCardImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CommercialRegister")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CommercialRegisterImgaeUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IdCardImageUrl")
-                        .IsRequired()
+                    b.Property<string>("FrontIdCardImageUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NationalNum")
                         .HasColumnType("int");
 
                     b.Property<string>("TaxCard")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TaxCardImgaeUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -334,15 +341,6 @@ namespace VetraMax.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AnimalBreederMaxQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AnimalBreederMinQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AnimalBreederPrice")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -350,18 +348,18 @@ namespace VetraMax.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsOnOffer")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPricedByCoins")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ItemsPerContainer")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RetailDestributorMaxQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RetailDestributorMinQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RetailDestributorPrice")
-                        .HasColumnType("int");
 
                     b.Property<int>("SubCategoryId")
                         .HasColumnType("int");
@@ -369,30 +367,56 @@ namespace VetraMax.Infrastructure.Migrations
                     b.Property<int>("TotalQuintity")
                         .HasColumnType("int");
 
-                    b.Property<int>("WholeSalerMaxQuantity")
-                        .HasColumnType("int");
+                    b.Property<string>("weight")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(64)");
 
-                    b.Property<int>("WholeSalerMinQuantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WholeSalerPrice")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("priceAfterOfferId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("priceByCoinsId")
+                    b.Property<int>("weightUnit")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("SubCategoryId");
 
-                    b.HasIndex("priceAfterOfferId");
-
-                    b.HasIndex("priceByCoinsId");
-
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("VetraMax.Domain.Entities.ProductRule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("MaxQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MinQuantity")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("PriceByCoins")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("PriceOnOffer")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("TraderTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("productId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TraderTypeId");
+
+                    b.HasIndex("productId");
+
+                    b.ToTable("ProductRules");
                 });
 
             modelBuilder.Entity("VetraMax.Domain.Entities.SubCategory", b =>
@@ -421,12 +445,32 @@ namespace VetraMax.Infrastructure.Migrations
                     b.ToTable("SubCategories");
                 });
 
+            modelBuilder.Entity("VetraMax.Domain.Entities.TraderType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TraderTypes");
+                });
+
             modelBuilder.Entity("VetraMax.Domain.Entities.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Coins")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -446,6 +490,9 @@ namespace VetraMax.Infrastructure.Migrations
 
                     b.Property<bool>("IsActivate")
                         .HasColumnType("bit");
+
+                    b.Property<int?>("LindId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -473,8 +520,8 @@ namespace VetraMax.Infrastructure.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TraderType")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TraderId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -483,7 +530,12 @@ namespace VetraMax.Infrastructure.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<int>("WalletId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("LindId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -492,6 +544,10 @@ namespace VetraMax.Infrastructure.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("TraderId");
+
+                    b.HasIndex("WalletId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -513,8 +569,7 @@ namespace VetraMax.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Wallets");
                 });
@@ -550,6 +605,21 @@ namespace VetraMax.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("WalletTransactions");
+                });
+
+            modelBuilder.Entity("DayLine", b =>
+                {
+                    b.HasOne("VetraMax.Domain.Entities.OwnedClasses.Day", null)
+                        .WithMany()
+                        .HasForeignKey("DaysId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("VetraMax.Domain.Entities.Line", null)
+                        .WithMany()
+                        .HasForeignKey("LinesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -652,14 +722,6 @@ namespace VetraMax.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("VetraMax.Domain.Entities.OptionalEntities.PriceAfterOffer", "priceAfterOffer")
-                        .WithMany()
-                        .HasForeignKey("priceAfterOfferId");
-
-                    b.HasOne("VetraMax.Domain.Entities.OptionalEntities.PriceByCoins", "priceByCoins")
-                        .WithMany()
-                        .HasForeignKey("priceByCoinsId");
-
                     b.OwnsMany("VetraMax.Domain.Entities.OwnedClasses.QuantityByExpiration", "quantityByExpirations", b1 =>
                         {
                             b1.Property<int>("ProductId")
@@ -687,11 +749,26 @@ namespace VetraMax.Infrastructure.Migrations
 
                     b.Navigation("SubCategory");
 
-                    b.Navigation("priceAfterOffer");
-
-                    b.Navigation("priceByCoins");
-
                     b.Navigation("quantityByExpirations");
+                });
+
+            modelBuilder.Entity("VetraMax.Domain.Entities.ProductRule", b =>
+                {
+                    b.HasOne("VetraMax.Domain.Entities.TraderType", "TraderType")
+                        .WithMany()
+                        .HasForeignKey("TraderTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("VetraMax.Domain.Entities.Product", "Product")
+                        .WithMany("productRules")
+                        .HasForeignKey("productId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("TraderType");
                 });
 
             modelBuilder.Entity("VetraMax.Domain.Entities.SubCategory", b =>
@@ -707,14 +784,26 @@ namespace VetraMax.Infrastructure.Migrations
 
             modelBuilder.Entity("VetraMax.Domain.Entities.User", b =>
                 {
+                    b.HasOne("VetraMax.Domain.Entities.Line", "Line")
+                        .WithMany()
+                        .HasForeignKey("LindId");
+
+                    b.HasOne("VetraMax.Domain.Entities.TraderType", "TraderType")
+                        .WithMany("users")
+                        .HasForeignKey("TraderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("VetraMax.Domain.Entities.Wallet", "Wallet")
+                        .WithMany()
+                        .HasForeignKey("WalletId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.OwnsOne("VetraMax.Domain.Entities.OwnedClasses.Address", "Address", b1 =>
                         {
                             b1.Property<string>("UserId")
                                 .HasColumnType("nvarchar(450)");
-
-                            b1.Property<string>("Center")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("City")
                                 .IsRequired()
@@ -724,7 +813,15 @@ namespace VetraMax.Infrastructure.Migrations
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<string>("Village")
+                            b1.Property<string>("Latitude")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Logitude")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Street")
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
@@ -736,14 +833,21 @@ namespace VetraMax.Infrastructure.Migrations
                                 .HasForeignKey("UserId");
                         });
 
-                    b.Navigation("Address");
+                    b.Navigation("Address")
+                        .IsRequired();
+
+                    b.Navigation("Line");
+
+                    b.Navigation("TraderType");
+
+                    b.Navigation("Wallet");
                 });
 
             modelBuilder.Entity("VetraMax.Domain.Entities.Wallet", b =>
                 {
                     b.HasOne("VetraMax.Domain.Entities.User", "User")
-                        .WithOne("Wallet")
-                        .HasForeignKey("VetraMax.Domain.Entities.Wallet", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -771,16 +875,24 @@ namespace VetraMax.Infrastructure.Migrations
                     b.Navigation("Transaction");
                 });
 
+            modelBuilder.Entity("VetraMax.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("productRules");
+                });
+
             modelBuilder.Entity("VetraMax.Domain.Entities.SubCategory", b =>
                 {
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("VetraMax.Domain.Entities.TraderType", b =>
+                {
+                    b.Navigation("users");
+                });
+
             modelBuilder.Entity("VetraMax.Domain.Entities.User", b =>
                 {
                     b.Navigation("TraderVerificationInfo");
-
-                    b.Navigation("Wallet");
                 });
 #pragma warning restore 612, 618
         }

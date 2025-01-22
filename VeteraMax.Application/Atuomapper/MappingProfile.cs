@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using AutoMapper.Execution;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,33 +19,37 @@ namespace VetraMax.Application.Atuomapper
 		{
 			//createMap<source, destination>
 			CreateMap<RegisterUserDto, User>()
-				.ForMember(dest => dest.TraderType, opt => opt.MapFrom(src => Enum.Parse<TraderType>(src.TraderType)));
+				.ForMember(dest => dest.TraderType, opt => opt.Ignore());
+				
+
+
 			CreateMap<AddressDto, Address>();
 			CreateMap<TraderVerificationInfoDto, TraderVerificationInfo>();
 
 
 
 			CreateMap<ProductDto, Product>()
-				.ForPath(dest=> dest.SubCategory.Name, opt=>opt.MapFrom(src=>src.subCategoryName));
+				.ForMember(dest => dest.SubCategory, opt => opt.Ignore())
+				.ForMember(dest => dest.productRules, opt => opt.MapFrom(src => src.productRuleDtos))
+				.ForMember(dest => dest.quantityByExpirations, opt => opt.MapFrom(src => src.QuantityByExpirationDto))
+				.ForMember(dest => dest.weightUnit, opt => opt.MapFrom(src => Enum.Parse<weightUnit>(src.weightUnit))); ;
 
-			CreateMap<Product, ProductDtoForDisplay>();
-
-			//CreateMap<Product, ProductDto>()
-			//	.ForMember(dest => dest.subCategoryName, opt => opt.MapFrom(src => src.SubCategory.Name));
-			//CreateMap<Product, ProductDtoForDisplay>();
-			
-			//CreateMap<ProductDtoForDisplay, Product>();
-
-			//CreateMap<ProductDto, Product>()
-			//.ForMember(dest => dest.SubCategory.Name, opt => opt.MapFrom(src => src.subCategoryName));
+			CreateMap<Product, ProductDtoForDisplay>()
+				.ForMember(dest => dest.weightUnit, opt => opt.MapFrom(src => src.weightUnit.ToString()))
+				.ForMember(dest => dest.weight, opt => opt.MapFrom(src => src.weight));
+				
 
 
+			CreateMap<ProductRule, ProductRuleDto>().ReverseMap();
+			CreateMap<QuantityByExpiration, QuantityByExpirationDto>().ReverseMap();
 
 
-			CreateMap<CategoryDto, Category>();	
+			//CreateMap<CategoryDto, Category>();
+			CreateMap<string, Category>()
+				.ForMember(dest => dest.Name, opt => opt.MapFrom(src => src));
 			CreateMap<Category,CategoryDto>();
 
-			CreateMap<SubCategoryDto, SubCategory>();
+			CreateMap<InsertSubCategoryDto, SubCategory>();
 			CreateMap<SubCategory, SubCategoryDto>()
 				.ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
 

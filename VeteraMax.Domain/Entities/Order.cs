@@ -16,7 +16,7 @@ namespace VetraMax.Domain.Entities
 		public  DeliveryState DeliveryState { get; set; }
 		public PaymentMethod PaymentMethod { get; set; }
 		[Required]
-		public virtual ICollection<Product> Products { get; set; }
+		public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 		public virtual WalletTransaction? Transaction { get; set; }
 	}
 }

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VetraMax.Domain.Entities;
-using VetraMax.Domain.Entities.OptionalEntities;
 using VetraMax.Domain.Entities.OwnedClasses;
 
 namespace VetraMax.Infrastructure.DbContext
@@ -18,13 +17,15 @@ namespace VetraMax.Infrastructure.DbContext
 		{ }
 
 		public DbSet<Category> Categories { get; set; }
-		public DbSet<SubCategory> SubCategories { get; set; }
-		public DbSet<Product> Products { get; set; }
-		public DbSet<PriceAfterOffer> PriceAfterOffer { get; set; }
-		public DbSet<PriceByCoins> PriceByCoins { get; set; }
 		public DbSet<Order> Orders { get; set; }
+		public DbSet<Product> Products { get; set; }
+		public DbSet<ProductRule> ProductRules { get; set; }
+		public DbSet<SubCategory> SubCategories { get; set; }
+		public DbSet<TraderType> TraderTypes { get; set; }
 		public DbSet<Wallet> Wallets { get; set; }
 		public DbSet<WalletTransaction> WalletTransactions { get; set; }
+		public DbSet<Line> Lines { get; set; }
+		
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
@@ -34,10 +35,11 @@ namespace VetraMax.Infrastructure.DbContext
 				.WithMany(p => p.FavoritedByUsers)
 				.UsingEntity(j => j.ToTable("Favorites"));
 
-			builder.Entity<User>(entity =>
-			{
-				entity.Property(u => u.TraderType).HasConversion<string>();
-			});
+
+			builder.Entity<Product>()
+				.Property(p => p.weight)
+				.HasConversion<string>();
+
 
 			builder.Entity<Order>(entity =>
 			{

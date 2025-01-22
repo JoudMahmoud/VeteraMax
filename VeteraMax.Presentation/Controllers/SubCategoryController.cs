@@ -30,7 +30,7 @@ namespace VetraMax.Presentation.Controllers
 			var subCategoriesDto = _mapper.Map<List<SubCategoryDto>>(subCategories);
 			return Ok(subCategoriesDto);
 		}
-		[HttpGet("cantegoryNaeme/{name}")]
+		[HttpGet("ByCategoryName")]
 		public async Task<ActionResult<IEnumerable<SubCategoryDto>>> GetSubCategoryByCategoryName([FromQuery]string categoryName)
 		{
 			var subCategories= await _subCategoryRepo.GetSubCategoriesByCategoryName(categoryName);
@@ -40,7 +40,7 @@ namespace VetraMax.Presentation.Controllers
 		}
 
 		[HttpGet("{id}")]
-		public async Task<ActionResult<SubCategoryDto>> GetSubCategoryById(int id)
+		public async Task<ActionResult<SubCategoryDto>> GetSubCategoryById([FromRoute]int id)
 		{
 			var existSubCategory =await _subCategoryRepo.GetSubCategoryById(id);
 			if (existSubCategory == null) { return NotFound(); }
@@ -48,8 +48,8 @@ namespace VetraMax.Presentation.Controllers
 			return Ok(subCategroyDto);
 		}
 
-		[HttpGet("ByName/{categroyName}")]
-		public async Task<ActionResult<CategoryDto>> GetSubCategoryByName(string categroyName)
+		[HttpGet("ByName")]
+		public async Task<ActionResult<CategoryDto>> GetSubCategoryByName([FromQuery]string categroyName)
 		{
 			var existSubCategory = await _subCategoryRepo.GetSubCategoryByName(categroyName);
 			if (existSubCategory == null) { return NotFound(); }
@@ -58,7 +58,7 @@ namespace VetraMax.Presentation.Controllers
 		}
 
 		[HttpPost]
-		public async Task<ActionResult<SubCategoryDto>> InsertSubCategory(SubCategoryDto subCategoryDto)
+		public async Task<ActionResult<SubCategoryDto>> InsertSubCategory([FromBody]InsertSubCategoryDto subCategoryDto)
 		{
 			if (!ModelState.IsValid) { return BadRequest(ModelState); }
 
@@ -67,7 +67,7 @@ namespace VetraMax.Presentation.Controllers
 			{ return NotFound(new { message = "Category not found" }); }
 
 			SubCategory subCategory = _mapper.Map<SubCategory>(subCategoryDto);
-			subCategory.CategoryId = category.Id;
+			//subCategory.CategoryId = category.Id;
 			subCategory.Category=category;
 
 			await _subCategoryRepo.InsertSubCategory(subCategory);
@@ -80,7 +80,7 @@ namespace VetraMax.Presentation.Controllers
 		}
 
 		[HttpDelete("{id}")]
-		public async Task<ActionResult<bool>> DeleteSubCategory(int id)
+		public async Task<ActionResult<bool>> DeleteSubCategory([FromRoute]int id)
 		{
 			var existSubCategory = await _subCategoryRepo.GetSubCategoryById(id);
 			if (existSubCategory == null) 
@@ -93,7 +93,7 @@ namespace VetraMax.Presentation.Controllers
 		}
 
 		[HttpPut("{id}")]
-		public async Task<ActionResult<SubCategoryDto>> EditSubCategory(int id, [FromBody]SubCategoryDto subCategory)
+		public async Task<ActionResult<SubCategoryDto>> EditSubCategory([FromRoute]int id, [FromBody]SubCategoryDto subCategory)
 		{
 			if (!ModelState.IsValid) { return BadRequest(ModelState); }
 			var existSubCategroy = await _subCategoryRepo.GetSubCategoryById(id);

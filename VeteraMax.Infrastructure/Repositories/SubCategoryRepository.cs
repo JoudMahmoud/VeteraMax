@@ -40,7 +40,7 @@ namespace VetraMax.Infrastructure.Repositories
 		public async Task<SubCategory?> GetSubCategoryByName(string name)
 		{
             return await _dbcontext.SubCategories
-                .FirstOrDefaultAsync(x => x.Name == name);
+                .FirstOrDefaultAsync(sc => sc.Name == name);
 		}
 		public async Task InsertSubCategory(SubCategory subcategory)
         {

@@ -12,13 +12,11 @@ namespace VetraMax.Domain.Interfaces
     {
 		Task<IEnumerable<SubCategory>> GetSubCategories();
 		Task<IEnumerable<SubCategory>> GetSubCategoriesByCategoryName(string categoryName);
-			Task<SubCategory?> GetSubCategoryById(int id);
+		Task<SubCategory?> GetSubCategoryById(int id);
 		Task<SubCategory?> GetSubCategoryByName(string name);
 		Task InsertSubCategory(SubCategory subcategory);
 		void DeleteSubCategory(SubCategory subCategory);
 		void UpdateSubCategory(SubCategory subCategory);
 		Task<bool> Save();
-
-
 	}
 }

@@ -1,6 +1,9 @@
 
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using VetraMax.Application.Atuomapper;
 using VetraMax.Application.Services;
 using VetraMax.Domain.Entities;
@@ -17,13 +20,16 @@ namespace VetraMax.Presentation
 		{
 			var builder = WebApplication.CreateBuilder(args);
 
+			#region Service Registrations
 			// Add services to the container.
 			builder.Services.AddControllers();
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
 
-			//register AutoMapper
+			//Add AutoMapper
 			builder.Services.AddAutoMapper(typeof(MappingProfile));
+			//Add Memory Cach
+			builder.Services.AddMemoryCache();
 
 			//Configure DbContext
 			builder.Services.AddDbContext<VetraMaxDbcontext>(options =>
@@ -35,11 +41,30 @@ namespace VetraMax.Presentation
 					);
 			});
 
-
 			//Register Identity services
 			builder.Services.AddIdentity<User, IdentityRole>()
 				.AddEntityFrameworkStores<VetraMaxDbcontext>()
 				.AddDefaultTokenProviders();
+
+			// Configure Authentication
+			builder.Services.AddAuthentication(options =>
+			{
+				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+			})
+			.AddJwtBearer(options =>
+			{
+				options.TokenValidationParameters = new TokenValidationParameters
+				{
+					ValidateIssuer = true,
+					ValidateAudience = true,
+					ValidateLifetime = true,
+					ValidateIssuerSigningKey = true,
+					ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
+					ValidAudience = builder.Configuration["JWT:ValidAudience"],
+					IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:SecretKey"]))
+				};
+			});
 
 			// Register custom services
 			builder.Services.AddScoped<RoleService>();
@@ -47,19 +72,37 @@ namespace VetraMax.Presentation
 			builder.Services.AddScoped<IProductRepository, ProductRepository>();
 			builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 			builder.Services.AddScoped<ISubCategoryRepository, SubCategoryRepository>();
+			builder.Services.AddScoped<ITraderRepository, TraderRepository>();
+			builder.Services.AddScoped<IProductRuleService, ProductRulesService>();
+			builder.Services.AddScoped<IFavoriteProductRepository, FavoriteProductRepository>();
 
-
-
+			#endregion
 
 			var app = builder.Build();
 
-			#region role
+			#region role and data seed
 			using (var scope = app.Services.CreateScope())
 			{
-				var roleSeeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
-				await roleSeeder.SeedRolesAsync();
+				var service = scope.ServiceProvider;
+				try
+				{
+					//seed roles
+					var roleSeeder = service.GetRequiredService<RoleSeeder>();
+					await roleSeeder.SeedRolesAsync();
+
+					//seed traderTypes
+					var dbContext = service.GetRequiredService<VetraMaxDbcontext>();
+					await VetraMaxContextSeed.seedAsync(dbContext);
+				}
+				catch (Exception ex)
+				{
+					var logger = service.GetRequiredService<ILogger<Program>>();
+					logger.LogError(ex, "An error occurred during database seeding.");
+				}
 			}
+
 			#endregion
+			#region Configure Middleware
 
 			// Configure the HTTP request pipeline.
 			if (app.Environment.IsDevelopment())
@@ -70,10 +113,12 @@ namespace VetraMax.Presentation
 
 			app.UseHttpsRedirection();
 
+			app.UseAuthentication();
 			app.UseAuthorization();
 
-
 			app.MapControllers();
+
+			#endregion
 
 			app.Run();
 		}

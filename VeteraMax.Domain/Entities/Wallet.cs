@@ -12,7 +12,8 @@ namespace VetraMax.Domain.Entities
 	{
 		public float Balance { get; set; }
 		[ForeignKey("User")]
-		public string UserId { get; set; }
-		public virtual User User { get; set; }
+		public string UserId { get; set; } = "";
+		[Required]
+		public virtual User User { get; set; } = new();
 	}
 }

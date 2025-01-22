@@ -19,19 +19,39 @@ namespace VetraMax.Infrastructure.Repositories
 			_dbContext = dbContext;
 		}
 
-		public async Task<IEnumerable<Product>> GetAllProduct()
+		public async Task<IEnumerable<Product>> GetAllProduct(int traderTypeId)
 		{
-			return await _dbContext.Products.ToListAsync();
+			return await _dbContext.Products
+				.Include(p => p.productRules.Where(r => r.TraderTypeId == traderTypeId))
+				.ToListAsync();
 		}
 
-		public async Task<Product?> GetProductById(int id)
+		public async Task<Product?> GetProductById(int id, int traderTypeId)
 		{
-			return await _dbContext.Products.FindAsync(id);
+			return await _dbContext.Products
+				.Include(p => p.productRules.Where(r => r.TraderTypeId == traderTypeId))
+				.FirstOrDefaultAsync(p => p.Id == id);
 		}
-		public async Task<Product?> GetProductByName(string name)
+
+		public async Task<IEnumerable<Product>> GetProductByName(string name,int traderType)
 		{
-			return await _dbContext.Products.FirstOrDefaultAsync(x => x.Name == name);
+			return await _dbContext.Products
+				.Include(p=>p.productRules.Where(r=>r.TraderTypeId==traderType))
+				.Where(p=>p.Name== name).ToListAsync();
 		}
+		public async Task<IEnumerable<Product>> GetProductsBySubCatName(string subCatName, int traderType)
+		{
+			var products=  await _dbContext.Products
+				.Include(p=>p.productRules.Where(p=>p.TraderTypeId==traderType))
+				.Where(p=>p.SubCategory.Name==subCatName)
+				.ToListAsync();
+			return products;
+		}
+
+
+
+
+
 		public async Task InsertProduct(Product product)
 		{
 			await _dbContext.Products.AddAsync(product);
@@ -46,11 +66,13 @@ namespace VetraMax.Infrastructure.Repositories
 		{
 			_dbContext.Entry(product).State = EntityState.Modified;
 		}
-
+		
 		public async Task<bool> Save()
 		{
 			int rowsAffected = await _dbContext.SaveChangesAsync();
 			return rowsAffected > 0;
 		}
+
+		
 	}
 }

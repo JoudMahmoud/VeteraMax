@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VetraMax.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83c3d6301781743690987378104cf69827332fbd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ad695f3294027cc08b7658dca71686150892f68")]
 [assembly: System.Reflection.AssemblyProductAttribute("VetraMax.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VetraMax.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

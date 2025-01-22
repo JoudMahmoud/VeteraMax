@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\DataSeed\\Role.json"
     },
     {
+      "Id": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\wwwroot\\DataSeed\\TraderType.json",
+      "PackagePath": "staticwebassets\\DataSeed\\TraderType.json"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.VetraMax.Presentation.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

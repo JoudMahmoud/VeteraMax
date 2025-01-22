@@ -32,8 +32,8 @@ namespace VetraMax.Presentation.Controllers
 			return Ok(categoriesDto);
 		}
 
-		[HttpGet("Admin")]
-		public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCatWithSubCatCount()
+		[HttpGet("CategoriesWithSubCount")]
+		public async Task<ActionResult<IEnumerable<CategoryOverviewDto>>> GetCatWithSubCatCount()
 		{
 			var categories = await _categoryRepository.GetAllCategories();
 			if (!categories.Any())
@@ -50,7 +50,7 @@ namespace VetraMax.Presentation.Controllers
 			return Ok(categoriesDtos);
 		}
 		[HttpGet("{id}")]
-		public async Task<ActionResult<CategoryDto>> GetCategoryById(int id)
+		public async Task<ActionResult<CategoryDto>> GetCategoryById([FromRoute]int id)
 		{
 			var category = await _categoryRepository.GetCategoryById(id);
 			if (category == null) { return NotFound(); }
@@ -58,8 +58,8 @@ namespace VetraMax.Presentation.Controllers
 			return Ok(categoryDto);
 		}
 
-		[HttpGet("ByName/{categoryName}")]
-		public async Task<ActionResult<CategoryDto>> GetCategoryByName(string categoryName)
+		[HttpGet("ByName")]
+		public async Task<ActionResult<CategoryDto>> GetCategoryByName([FromQuery]string categoryName)
 		{
 			var category = await _categoryRepository.GetCategoryByName(categoryName);
 			if (category == null) { return NotFound(); }
@@ -68,21 +68,25 @@ namespace VetraMax.Presentation.Controllers
 		}
 
 		[HttpPost]
-		public async Task<ActionResult<CategoryDto>> InsertCategory([FromBody]CategoryDto newCategory)
+		public async Task<ActionResult<CategoryDto>> InsertCategory([FromQuery]string newCategoryName)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
-			Category category = _mapper.Map<Category>(newCategory);
-			category = await _categoryRepository.InsertCategory(category);
-			await _categoryRepository.Save();
-			return Ok(newCategory);
+			Category category = _mapper.Map<Category>(newCategoryName);
+			await _categoryRepository.InsertCategory(category);
+			bool isSaved = await _categoryRepository.Save();
+			if(!isSaved) 
+			{
+				return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Failed to insert the category" });
+			}
+			return Ok(new {message ="category added successfully", newCategoryName});
 		}
 
 
 		[HttpDelete("{id}")]
-		public async Task<ActionResult<bool>> DeleteCategory(int id)
+		public async Task<ActionResult<bool>> DeleteCategory([FromRoute]int id)
 		{
 			var existCategory = await _categoryRepository.GetCategoryById(id);
 			if (existCategory == null)
@@ -90,19 +94,17 @@ namespace VetraMax.Presentation.Controllers
 				return NotFound(new { message = "Category not found" });
 			}
 
-
-			bool isDeleted = _categoryRepository.DeleteCategory(existCategory);
-			if (isDeleted)
+			_categoryRepository.DeleteCategory(existCategory);
+			bool isSaved = await _categoryRepository.Save(); 
+			if (!isSaved)
 			{
-				await _categoryRepository.Save();
-				return Ok(true);
+				return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Failed to delete the category" });
 			}
-
-			return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Failed to delete the category" });
+			return Ok(new { success = true });
 		}
 
 		[HttpPut("{id}")]
-		public async Task<ActionResult<CategoryDto>> EditCategory(int id, string newCategoryName)
+		public async Task<ActionResult<CategoryDto>> EditCategory([FromRoute]int id, string newCategoryName)
 		{
 			if(!ModelState.IsValid) {return BadRequest(ModelState);}
 			var existCategory = await _categoryRepository.GetCategoryById(id);
@@ -110,14 +112,12 @@ namespace VetraMax.Presentation.Controllers
 			{ return NotFound(new { message = "Category not found" }); }
 
 			existCategory.Name = newCategoryName;
-			try
+			
+			_categoryRepository.UpdateCategory(existCategory);
+			bool isSaved = await _categoryRepository.Save();
+			if (!isSaved)
 			{
-				_categoryRepository.UpdateCategory(existCategory);
-				await _categoryRepository.Save();
-			}
-			catch (Exception ex)
-			{
-				return StatusCode(StatusCodes.Status500InternalServerError, new {message=ex.Message});
+				return StatusCode(StatusCodes.Status500InternalServerError, new { message ="Can't edit category name"});
 			}
 			
 			var categoryDto = _mapper.Map<CategoryDto>(existCategory);

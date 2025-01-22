@@ -4,38 +4,25 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VetraMax.Domain.Enums;
 
 namespace VetraMax.Application.DTOs
 {
 	public class ProductDtoForDisplay
 	{
-		[Required]
+		public int Id { get; set; }
 		public string Name { get; set; }
-
 		public string? Description { get; set; }
-
-		[Required]
 		public string ImageUrl { get; set; }
+		//per trader
+		public decimal Price { get; set; }
+		public int MaxQuantity { get; set; }
+		public int MinQuantity { get; set; }
+		public decimal? PriceOnOffer { get; set; }
+		public int? priceByCoins { get; set; }
+		public decimal weight { get; set; }
+		public string weightUnit { get; set; }
 
-		public int TotalQuintity { get; set; }
-
-		// Max Quantity per trader
-		public int WholeSalerMaxQuantity { get; set; }
-		public int AnimalBreederMaxQuantity { get; set; }
-		public int RetailDestributorMaxQuantity { get; set; }
-
-		// Min Quantity per trader
-		public int WholeSalerMinQuantity { get; set; }
-		public int AnimalBreederMinQuantity { get; set; }
-		public int RetailDestributorMinQuantity { get; set; }
-
-		// Price per trader
-		public int WholeSalerPrice { get; set; }
-		public int AnimalBreederPrice { get; set; }
-		public int RetailDestributorPrice { get; set; }
-
-		public PriceByCoinsDto? priceByCoins { get; set; }
-		public PriceAfterOfferDto? priceAfterOffer { get; set; }
 	}
 
 }

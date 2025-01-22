@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "C3bMcwd2h3AcjOnaRkwBvf/+DNkLzHVb+m2PpeDYxf0=",
+  "Hash": "vGG7pjIpHo+3Z/g2kPELg88IsAD1Cgfovd0BzRTYT0k=",
   "Source": "VetraMax.Presentation",
   "BasePath": "_content/VetraMax.Presentation",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\DataSeed\\Role.json"
+    },
+    {
+      "Identity": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\wwwroot\\DataSeed\\TraderType.json",
+      "SourceId": "VetraMax.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\iti\\0-project\\veteraMax\\21-11-2024\\VeteraMax\\VeteraMax.Presentation\\wwwroot\\",
+      "BasePath": "_content/VetraMax.Presentation",
+      "RelativePath": "DataSeed/TraderType.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\DataSeed\\TraderType.json"
     }
   ]
 }

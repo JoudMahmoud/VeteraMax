@@ -12,9 +12,9 @@ namespace VetraMax.Domain.Interfaces
 		Task<IEnumerable<Category>> GetAllCategories();
 		Task<Category?> GetCategoryById(int id);
 		Task<Category?> GetCategoryByName(string name);
-		Task<Category> InsertCategory(Category category);
-		bool DeleteCategory(Category category);
-		Category UpdateCategory(Category category);
-		Task Save();
+		Task InsertCategory(Category category);
+		void DeleteCategory(Category category);
+		void UpdateCategory(Category category);
+		Task<bool> Save();
 	}
 }

@@ -10,10 +10,10 @@ namespace VetraMax.Domain.Entities.OwnedClasses
     [Owned]
     public class Address
     {
-        
         public string City { get; set; }
-        public string Center { get; set; }
-        public string Village { get; set; }
+        public string Street { get; set; }
         public string Details { get; set; }
-    }
+		public string Latitude { get; set; }
+		public string Logitude { get; set; }
+	}
 }

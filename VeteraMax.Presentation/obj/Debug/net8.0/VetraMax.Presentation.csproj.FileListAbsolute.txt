@@ -157,3 +157,4 @@ E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\obj\Debug
 E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\obj\Debug\net8.0\ref\VetraMax.Presentation.dll
 E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\bin\Debug\net8.0\Castle.Core.dll
 E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Proxies.dll
+E:\iti\0-project\veteraMax\21-11-2024\VeteraMax\VeteraMax.Presentation\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
